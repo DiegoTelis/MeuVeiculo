@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MeuVeiculo.View"
+             x:Class="MeuVeiculo.View.MasterPage"
+             Padding="0,40,0,0"
+			 Icon="hamburger.png"
+			 Title="Personal"
+             BackgroundColor="Black">
+    <StackLayout BackgroundColor="Gainsboro">
+        <ListView x:Name="listView">
+            <ListView.ItemsSource>
+                <x:Array Type="{x:Type local:MasterPageItem}">
+                    <local:MasterPageItem Title="Cadastrar Veiculo" IconSource="cadastro.png" TargetType="{x:Type local:CadastroVeiculoPage}"  />
+                    <local:MasterPageItem Title="Meu Veiculo" IconSource="checklist.png" TargetType="{x:Type local:MeuVeiculoPage}" />
+                    <local:MasterPageItem x:Name="Lanc" Title="Lançamento de Eventos" IconSource="novo.png" TargetType="{x:Type local:LancamentoEvento}" />
+                    <!--<local:MasterPageItem Title="Historido de Eventos" IconSource="reminders.png" TargetType="{x:Type local:HistoricoEventosPage}" />-->
+                    <local:MasterPageItem Title="Historico de Eventos" IconSource="calendar.png" TargetType="{x:Type local:HistoricoPage}" />
+                    <!--<local:MasterPageItem Title="Resultados do Veiculo" TargetType="{x:Type local:ResultadoPage}" />-->
+                    <local:MasterPageItem Title="Resultados do Veiculo" TargetType="{x:Type local:RelatorioTabPage}"/>
+                </x:Array>
+            </ListView.ItemsSource>
+            <ListView.Header >
+                <Grid Padding="0" BackgroundColor="DarkGray">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="10"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="10"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="80"/>
+                        <RowDefinition Height="Auto"/>
+                        <!--<RowDefinition Height="60"/>-->
+                    </Grid.RowDefinitions>
+                    <Image Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" Grid.RowSpan="3" Source="vel.png" VerticalOptions="StartAndExpand" />
+                    <Picker x:Name="pic" Grid.Column="1" Grid.Row="2"  ItemsSource="{Binding Veiculos}" VerticalOptions="End"
+                            ItemDisplayBinding="{Binding VeiculoToString}" Scale="0.82" Title="Selecione o Veiculo" TextColor="DarkBlue"/>
+                    
+                </Grid>
+            </ListView.Header>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell >
+                        <ViewCell.View >
+                            <Grid Padding="5,10" >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Image Source="{Binding IconSource}" />
+                            <Label Grid.Column="1" Text="{Binding Title}"   />
+                        </Grid>
+                        </ViewCell.View>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>

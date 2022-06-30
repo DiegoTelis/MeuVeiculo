@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MeuVeiculo.View.CadastroVeiculoPage"
+             Title="Cadastro de Veiculo">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="10"  BackgroundColor="Gainsboro">
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Tipo Veículo: " WidthRequest="130" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Center" VerticalTextAlignment="Center" VerticalOptions="FillAndExpand" />
+                    <Picker ItemsSource="{Binding TipoList}" SelectedItem="{Binding TipoSelecionado}" HorizontalOptions="FillAndExpand" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Marca: " WidthRequest="85" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Center" VerticalTextAlignment="Center" VerticalOptions="FillAndExpand" />
+                    <Picker ItemsSource="{Binding MarcasList}" SelectedItem="{Binding MarcaSelecionada}" HorizontalOptions="FillAndExpand" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Modelo:" WidthRequest="85" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Center" VerticalTextAlignment="Center" VerticalOptions="FillAndExpand" />
+                    <Picker ItemsSource="{Binding ModelosList}"   SelectedItem="{Binding ModeloSelecionado}" HorizontalOptions="FillAndExpand"  />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Ano:" WidthRequest="85" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Center" VerticalTextAlignment="Center" VerticalOptions="FillAndExpand" />
+                    <Picker ItemsSource="{Binding AnoList}" SelectedItem="{Binding AnoSelecionado, Mode=OneWayToSource}"  HorizontalOptions="FillAndExpand"  />
+                </StackLayout>
+                <!--<StackLayout Orientation="Horizontal" BackgroundColor="Azure" >
+                    <Label Text="Motor Potência:" WidthRequest="100" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Center" VerticalTextAlignment="Center" VerticalOptions="FillAndExpand" />
+                    <Entry Text="{Binding Cilindrada}"  HorizontalOptions="FillAndExpand"  />
+                </StackLayout>-->
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Valor:" WidthRequest="85" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Center" VerticalTextAlignment="Center" VerticalOptions="FillAndExpand" />
+                    <Entry Text="{Binding Valor}"  HorizontalOptions="FillAndExpand" Keyboard="Numeric" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Litragem Atual:" WidthRequest="93" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Center" VerticalTextAlignment="Center" VerticalOptions="FillAndExpand" />
+                    <Entry Text="{Binding Litragem}"  HorizontalOptions="FillAndExpand" Keyboard="Numeric" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Litragem Total:" WidthRequest="93" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Center" VerticalTextAlignment="Center" VerticalOptions="FillAndExpand" />
+                    <Entry Text="{Binding LitragemBase}"  HorizontalOptions="FillAndExpand" Keyboard="Numeric"  />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Litragem Reserva:" WidthRequest="93" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Center" VerticalTextAlignment="Center" VerticalOptions="FillAndExpand" />
+                    <Entry Text="{Binding Reserva}"  HorizontalOptions="FillAndExpand" Keyboard="Numeric"  />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Consumo Medio:" WidthRequest="100" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Center" VerticalTextAlignment="Center" VerticalOptions="FillAndExpand" />
+                    <Entry Text="{Binding ConsumoMedio}"  HorizontalOptions="FillAndExpand" Keyboard="Numeric"  />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Kilometragem Atual:" WidthRequest="140" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Center" VerticalTextAlignment="Center" VerticalOptions="FillAndExpand" />
+                    <Entry Text="{Binding Kilometragem}"  HorizontalOptions="FillAndExpand" Keyboard="Numeric" />
+                </StackLayout>
+                <Button Text="Salvar Veículo" Command="{Binding SalvarVeiculoCommand}" BackgroundColor="LightSeaGreen" />
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

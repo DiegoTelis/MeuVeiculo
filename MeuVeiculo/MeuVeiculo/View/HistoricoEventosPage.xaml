@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MeuVeiculo.View.HistoricoEventosPage"
+             Title="Historico de Lançamentos">
+    <ContentPage.Content>
+        <StackLayout Padding="10" BackgroundColor="Gainsboro">
+            <!--<Label Text="Tess"/>-->
+            <!--<Button Text="Atualizar" Command="{Binding AtualizarCommand}" BackgroundColor="LightSeaGreen"/>-->
+            <ListView ItemsSource="{Binding EventosHist}" x:Name="EventosHistListView" ItemAppearing="EventosHistListView_ItemAppearing">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.ContextActions>
+                                <MenuItem Text="Detalhes" Clicked="Detalhes_Clicked" CommandParameter="{Binding .}" />
+                                <MenuItem Text="Deletar" Clicked="Deletar_Clicked" CommandParameter="{Binding .}" Command="{Binding Path=BindingContext.DeletarCommand, Source={x:Reference EventosHistListView}}" IsDestructive="True" />
+                            </ViewCell.ContextActions>
+                            <ViewCell.View>
+                                <Grid >
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="50"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Label x:Name="lblCod" Grid.Column="0" Grid.Row="0" Text="{Binding Codigo}" />
+                                    <Label Grid.Column="1" Grid.Row="0" Text="{Binding Tipo}" />
+                                    <Label x:Name="lblData" Grid.Column="2" Grid.Row="0" Text="{Binding Data, StringFormat='\{0:dd/MM/yyyy}'}"   />
+                                    <Label Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Text="{Binding Observacao}"/>
+                                    <Label Grid.Column="0" Grid.Row="1" Text="{Binding Kilometros}"/>
+                                </Grid>
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <!--<Button Text="ADD 3 Hrs" Command="{Binding LimparCommand}"/>-->
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

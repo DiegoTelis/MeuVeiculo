@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MeuVeiculo.View.LancamentoEvento"
+             Title="Lançamento de Eventos">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="10" BackgroundColor="Gainsboro" >
+                <!--<Label x:Name="lblCodigo" Text="{Binding CodVeiculo}" />-->
+                <Label Text="{Binding VeiculoToString}" TextColor="DarkBlue" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="CenterAndExpand"/>
+                <Label Text="Seleciona a Ação Realizada" FontSize="Medium" FontAttributes="Bold"/>
+                <Picker  ItemsSource="{Binding TiposPick}" SelectedItem="{Binding Tipo}"  
+                     ItemDisplayBinding="{Binding Descricao}" HorizontalOptions="FillAndExpand" />
+                <Label Text="Data do Evento" FontSize="Medium" FontAttributes="Bold"/>
+                <DatePicker Date="{Binding Data}" />
+                <Label Text="Observações" FontSize="Medium" FontAttributes="Bold"/>
+                <Entry Placeholder="Digite aqui ....." Text="{Binding Observacao}" />
+                <Label Text="Kilometragem" FontSize="Medium" FontAttributes="Bold"/>
+                <Entry  Placeholder="Km: 15.000" Keyboard="Numeric" Text="{Binding Kilometragem}"/>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" IsVisible="{Binding Valores}">
+                    <StackLayout >
+                        <Label Text="Valor Unitario" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="CenterAndExpand"/>
+                        <Entry x:Name="ValUnit" Placeholder="R$: 2,50" Keyboard="Numeric" Text="{Binding ValorUnitario, Mode=OneWayToSource}" HorizontalOptions="FillAndExpand"/>
+                    </StackLayout>
+                    <StackLayout >
+                        <Label Text="Quantidade" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="CenterAndExpand"/>
+                        <Entry x:Name="QTD" Placeholder="10" Keyboard="Numeric" Text="{Binding Quantidade,Mode=OneWayToSource}" HorizontalOptions="FillAndExpand"/>
+                    </StackLayout>
+                    <StackLayout IsVisible="{Binding HabilitaTanqueCheio}">
+                        <Label Text="Tanque Cheio?" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" />
+                        <Switch  IsEnabled="{Binding HabilitaTanqueCheio}" IsToggled="{Binding TanqueCheioSelecionado}" HorizontalOptions="CenterAndExpand" VerticalOptions="EndAndExpand"/>
+                    </StackLayout>
+                </StackLayout>
+                <Label Text="Total" FontSize="Medium" FontAttributes="Bold" IsVisible="{Binding Valores}" />
+                <Entry Placeholder="R$: 50,00" Keyboard="Numeric" Text="{Binding Total}" IsVisible="{Binding Valores}" />
+                <Button x:Name="btnSalvar" Text="Salvar Evento" BorderColor="Black" Command="{Binding SalvarCommand}" Clicked="btnSalvar_Clicked" BackgroundColor="LightSeaGreen"/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MeuVeiculo.View.MeuVeiculoPage"
+             xmlns:local="clr-namespace:MeuVeiculo.View.IValueConverts;assembly=MeuVeiculo"
+             Title="Informações do Veiculo">
+    <!--<ContentPage.Resources>
+        <ResourceDictionary>
+            <local:VeiculoIcon x:Key="VeicIcon"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>-->
+    <ContentPage.Content>
+        <StackLayout Padding="10" BackgroundColor="Gainsboro">
+            <Button Text="Carregar" Command="{Binding CarregarCommand}" BackgroundColor="LightSeaGreen"/>
+            <ListView ItemsSource="{Binding Veiculos}" x:Name="VeiculosListView">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell >
+                            <ViewCell.ContextActions>
+                                <MenuItem Text="Detalhes" Clicked="Detalhes_Clicked" CommandParameter="{Binding .}"/>
+                                <MenuItem Text="Deletar" Clicked="Delete_Clicked" CommandParameter="{Binding .}" IsDestructive="True" />
+                            </ViewCell.ContextActions>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="70"/>
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <Label Text="{Binding CodVeiculo}" Grid.Column="0" Grid.Row="0" HorizontalOptions="CenterAndExpand"/>
+                                <Label Text="{Binding Marca}" Grid.Column="1" Grid.Row="0"/>
+                                <Label Text="{Binding Modelo}" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" />
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <!--<Button Text="Apagar" Command="{Binding ApagarCommand}" />-->
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

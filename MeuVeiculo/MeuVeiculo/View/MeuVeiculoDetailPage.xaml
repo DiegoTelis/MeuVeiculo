@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MeuVeiculo.View.MeuVeiculoDetailPage"
+             Title="Detalhes do Veiculo">
+    <ContentPage.Content>
+        <StackLayout x:Name="Stack" Padding="10" BackgroundColor="Gainsboro">
+            <!--<StackLayout Orientation="Horizontal" BackgroundColor="Azure">
+                <Label Text="Tipo Veículo: " WidthRequest="130" FontSize="Large"  HorizontalOptions="Center" VerticalTextAlignment="Center" VerticalOptions="FillAndExpand" />
+                <Label Text="{Binding Tipo}" FontSize="Large" FontAttributes="Bold"  HorizontalOptions="FillAndExpand" />
+            </StackLayout>-->
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Marca: " WidthRequest="130" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Center" VerticalTextAlignment="Center" VerticalOptions="FillAndExpand" />
+                <Label Text="{Binding Marca}" FontSize="Large" FontAttributes="Bold"  TextColor="DarkBlue"
+                       HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" VerticalOptions="FillAndExpand"  />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Modelo: " WidthRequest="130" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Center" VerticalTextAlignment="Center" VerticalOptions="FillAndExpand" />
+                <Label Text="{Binding Modelo}" FontSize="Large" FontAttributes="Bold" TextColor="DarkBlue"
+                       HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"  VerticalTextAlignment="Center" VerticalOptions="FillAndExpand" />
+            </StackLayout>
+            
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Valor:" WidthRequest="85" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Center" VerticalTextAlignment="Center" VerticalOptions="FillAndExpand" />
+                <Entry x:Name="valor" TextChanged="valor_TextChanged" Text="{Binding Valor,  Mode=OneWayToSource}"  HorizontalOptions="FillAndExpand" Keyboard="Numeric" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Litragem Atual:" WidthRequest="93" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Center" VerticalTextAlignment="Center" VerticalOptions="FillAndExpand" />
+                <Entry x:Name="litragemAt" Text="{Binding Litragem,  Mode=OneWayToSource}" TextChanged="litragemAt_TextChanged"  HorizontalOptions="FillAndExpand" Keyboard="Numeric" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Litragem Total:" WidthRequest="93" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Center" VerticalTextAlignment="Center" VerticalOptions="FillAndExpand" />
+                <Entry x:Name="litragemTot" Text="{Binding LitragemBase,  Mode=OneWayToSource}" TextChanged="litragemTot_TextChanged"  HorizontalOptions="FillAndExpand" Keyboard="Numeric"  />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Litragem Reserva:" WidthRequest="93" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Center" VerticalTextAlignment="Center" VerticalOptions="FillAndExpand" />
+                <Entry x:Name="reserva" Text="{Binding Reserva,  Mode=OneWayToSource}" TextChanged="reserva_TextChanged"  HorizontalOptions="FillAndExpand" Keyboard="Numeric"  />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Consumo Medio:" WidthRequest="100" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Center" VerticalTextAlignment="Center" VerticalOptions="FillAndExpand" />
+                <Entry x:Name="consumoMedio" Text="{Binding ConsumoMedio,  Mode=OneWayToSource}" TextChanged="consumoMedio_TextChanged" HorizontalOptions="FillAndExpand" Keyboard="Numeric"  />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Kilometragem Atual:" WidthRequest="140" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Center" VerticalTextAlignment="Center" VerticalOptions="FillAndExpand" />
+                <Entry x:Name="kilometragem" Text="{Binding Kilometragem,  Mode=OneWayToSource}" TextChanged="kilometragem_TextChanged"   HorizontalOptions="FillAndExpand" Keyboard="Numeric" />
+            </StackLayout>
+            <Button x:Name="Salvar" Clicked="Salvar_Clicked" Text="Salvar Veículo" IsVisible="False" BackgroundColor="LightSeaGreen" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
